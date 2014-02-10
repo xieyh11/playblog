@@ -1,0 +1,31 @@
+@(form: Form[Application.Login])
+
+@scripts = {
+}
+
+
+@implicitField = @{ helper.FieldConstructor(myFieldConstructorTemplate.f) }
+@main("Welcome", scripts, null){
+<div class="row">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-4">
+		@helper.form(action = routes.Application.authenticate()) {
+			
+			<h1>Welcome Back!</h1>
+			
+			@if(form.hasGlobalErrors) {
+				<p class="error">@form.globalError.message</p>
+			}
+		
+			@helper.input(form("name")) { (id, name, value, args) =>
+				<input type="text" class="form-control" name="@name" id="@id" value="@value" placeholder="Enter @name" @toHtmlArgs(args)>
+			}
+			@helper.input(form("password")) { (id, name, value, args) =>
+				<input type="password" class="form-control" name="@name" id="@id" placeholder="Enter @name" @toHtmlArgs(args)>
+			}
+  			<button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+		}
+	</div>
+	<div class="col-sm-4"></div>
+</div>
+}

@@ -1,0 +1,18 @@
+@(blog: Blog, login: User)
+
+@scripts = {
+}
+
+@main("Blog", scripts, login){
+	<div class="blog">
+		<div class="blogtitle">
+			@blog.title
+		</div>
+		<div class="bloginfo">
+			Post by <div class="name">@blog.user.name</div> at <div class="date">@blog.postDate</div>
+		</div>
+		<div class="blogcontent">
+			@Html(blog.text)
+		</div>
+	</div>
+}

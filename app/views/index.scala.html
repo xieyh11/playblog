@@ -1,0 +1,20 @@
+@(message: List[Blog], login: User)
+
+@scripts = {
+}
+
+@main("Welcome to Play", scripts, login) {
+
+    <div class="row">
+    	<div class="col-sm-8">
+    		<div class="bloglist">
+    			@message.map{ blog =>
+    				@views.html.item(blog)
+    			}
+    		</div>
+    	</div>
+    	<div class="col-sm-4">
+    	</div>
+    </div>
+
+}

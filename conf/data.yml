@@ -1,0 +1,19 @@
+# Users
+
+- &admin !!models.User
+  name: admin
+  password: admin
+  
+# Blogs
+
+- &blog1 !!models.Blog
+  title: Hello World
+  text: <p>Hello World! This is a play blog.</p>
+  postDate: 2011-11-18
+  user: *admin
+
+- &blog2 !!models.Blog
+  title: Turtorial
+  text: <p>example for our blog! A good example.</p>
+  postDate: 2011-11-18
+  user: *admin

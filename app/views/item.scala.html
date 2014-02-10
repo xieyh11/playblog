@@ -1,0 +1,17 @@
+@(item: Blog)
+
+<div class="item">
+	<h2 class="blogtitle">
+		<a href="@routes.Blogs.index(item.id)">@item.title</a>
+	</h2>
+	<div class="bloginfo">
+		Post by <div class="name">@item.user.name</div> at <div class="date">@item.postDate.format("yyyy-MM-dd")</div>
+	</div>
+	<div class="blogcontent">
+		@if(item.text.length > 100){
+			@Html(item.text.substring(0, 100))
+		} else {
+			@Html(item.text)
+		}
+	</div>
+</div>
