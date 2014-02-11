@@ -1,0 +1,26 @@
+@(id: Long, form: Form[Blogs.BlogForm], login: User)
+
+@scripts = {
+}
+
+@implicitField = @{ helper.FieldConstructor(myFieldConstructorTemplate.f) }
+@main("Create a new blog", scripts, login){
+	<div class="row">
+		<div class="col-sm-8">
+			@helper.form(action = routes.Blogs.saveEdit(id)){
+				@if(form.hasGlobalErrors){
+					<p class="error">@form.globalError.message</p>
+				}
+			
+				@helper.input(form("title")) { (id, name, value, args) =>
+					<input type="text" class="form-control" name="@name" id="@id" value="@value" placeholder="Enter @name" @toHtmlArgs(args)>
+				}
+				@helper.input(form("text")) { (id, name, value, args) =>
+					<textarea rows="4" class="form-control" name="@name">@value</textarea>
+				}
+				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="reset" class="btn btn-danger">Cancel</button>
+			}
+		</div>
+	</div>
+}

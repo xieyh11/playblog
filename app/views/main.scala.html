@@ -24,7 +24,7 @@
     				<ul class="nav navbar-nav navbar-right">
     					@if(login != null){
     						<li><a href="#">@login.name</a></li>
-    						<li><a href="#">Add Blog</a></li>
+    						<li><a href="@routes.Blogs.create()">Add Blog</a></li>
     						<li><a href="@routes.Application.logout()">Logout</a></li>
     					} else {
     						<li><a href="@routes.Application.login()">Login</a></li>

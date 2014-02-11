@@ -45,5 +45,17 @@ public class Blog extends Model {
 		blog.save();
 		return blog;
 	}
+	
+	public boolean belongTo(String name){
+		return user.name.equals(name);
+	}
+	
+	public static Blog edit(Long id, String title, String text){
+		Blog blog = find.byId(id);
+		blog.text = text;
+		blog.title = title;
+		blog.save();
+		return blog;
+	}
 
 }
